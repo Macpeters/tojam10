@@ -29,7 +29,6 @@
         <sprite>sprites\gameCtrIcon</sprite>
         <sprite>sprites\globalCtrlIcon</sprite>
         <sprite>sprites\hudIcon</sprite>
-        <sprite>sprites\worldIcon</sprite>
       </sprites>
       <sprite>sprites\spr_btn_settings</sprite>
       <sprite>sprites\spr_btn_music</sprite>
@@ -40,9 +39,7 @@
     <sprite>sprites\sprite75</sprite>
   </sprites>
   <backgrounds name="background">
-    <backgrounds name="disco">
-      <background>background\bg_disco01</background>
-    </backgrounds>
+    <background>background\bg_game</background>
     <backgrounds name="screens">
       <background>background\bg_title</background>
       <background>background\bg_main</background>
@@ -50,9 +47,6 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <scripts name="In_Game">
-      <script>scripts\unstick.gml</script>
-    </scripts>
     <script>scripts\setConstants.gml</script>
     <scripts name="get_sprites">
       <script>scripts\get_global_btn_sprite.gml</script>
