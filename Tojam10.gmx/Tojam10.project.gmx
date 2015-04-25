@@ -29,8 +29,6 @@
         <sprite>sprites\gameCtrIcon</sprite>
         <sprite>sprites\globalCtrlIcon</sprite>
         <sprite>sprites\hudIcon</sprite>
-        <sprite>sprites\sparkleIcon</sprite>
-        <sprite>sprites\storeIcon</sprite>
         <sprite>sprites\worldIcon</sprite>
       </sprites>
       <sprite>sprites\spr_btn_settings</sprite>
