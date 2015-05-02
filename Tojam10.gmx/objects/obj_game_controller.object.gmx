@@ -36,6 +36,7 @@ gvObj = view_object[0];
 
 
 
+
 </string>
           </argument>
         </arguments>
@@ -202,6 +203,9 @@ if instance_exists(gvObj) {
  view_xview[0] = min(max(0,gvX),room_width-view_wview[0]);
  view_yview[0] = min(max(0,gvY),room_height-view_hview[0]);
 }
+
+
+
 
 </string>
           </argument>

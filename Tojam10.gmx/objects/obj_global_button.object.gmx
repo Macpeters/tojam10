@@ -64,6 +64,9 @@ self.buttonLevel = 1;
    case global.BUTTON_MUSIC:
     
    break;
+   case global.BUTTON_OK:
+    //Resolve the chosen keys against the requirements
+   break;
     //default
    default:
    }
