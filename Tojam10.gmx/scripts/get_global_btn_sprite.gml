@@ -14,6 +14,9 @@ buttonType = argument[0];
    case global.BUTTON_MUSIC:
     sprite = spr_btn_music;
    break;
+   case global.BUTTON_OK:
+    sprite = spr_btn_ok;
+    break;
     //default
    default:
     sprite = spr_solid_square;
