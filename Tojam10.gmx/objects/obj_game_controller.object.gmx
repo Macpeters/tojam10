@@ -204,6 +204,20 @@ if instance_exists(gvObj) {
  view_yview[0] = min(max(0,gvY),room_height-view_hview[0]);
 }
 
+//reset selected keys
+global.KEYS[0] = false;
+global.KEYS[1] = false;
+global.KEYS[2] = false;
+global.KEYS[3] = false;
+global.KEYS[4] = false;
+global.KEYS[5] = false;
+global.KEYS[6] = false;
+global.KEYS[7] = false;
+global.KEYS[8] = false;
+global.KEYS[9] = false;
+global.KEYS[10] = false;
+global.KEYS[11] = false;
+
 
 
 
