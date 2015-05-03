@@ -31,7 +31,7 @@ global.chord = get_chord();
 
 //chord dots
 for (var i = 0; i &lt; array_height_2d(global.chord); i++;){
-    dot = instance_create(i * 70 + 100, 60, obj_coloured_dot);
+    dot = instance_create(i * 70 + 175, 80, obj_coloured_dot);
     value = global.chord[i, 0];
     dot.dotColour = value + 200;
     dot.value = value;
@@ -52,7 +52,7 @@ whiteKeys[5] = global.A;
 whiteKeys[6] = global.B;
 
 for(i = 0; i &lt; global.NUM_WHITE_KEYS; i++){
-    dot = instance_create(i * 90 + 20, 380, obj_coloured_dot);
+    dot = instance_create(i * 90 + 50, 400, obj_coloured_dot);
     dot.dotColour = global.WHITE
     dot.value = whiteKeys[i];
     keys_index = get_keys_index(whiteKeys[i]);
@@ -71,7 +71,7 @@ blackKeys[5] = global.ASHARP;
 
 for(j = 0; j &lt;= global.NUM_BLACK_KEYS; j++){
     if(j != 2){
-        dot = instance_create(j * 90 + 90, 250, obj_coloured_dot);
+        dot = instance_create(j * 90 + 100, 260, obj_coloured_dot);
         dot.dotColour = global.BLACK
         dot.value = blackKeys[j]
         dot.keys_index = get_keys_index(blackKeys[j]);

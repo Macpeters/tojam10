@@ -9,7 +9,7 @@ name = "error";
         name = "A";
    break;
    case global.ASHARP:
-        name = "Asharp";
+        name = "A\#";
    break;
    case global.B:
         name = "B";
@@ -18,13 +18,13 @@ name = "error";
         name = "C";
     break;
     case global.CSHARP:
-        name = "Csharp";
+        name = "C\#";
     break;
     case global.D:
         name = "D";
     break;
     case global.DSHARP:
-        name = "Dsharp";
+        name = "D\#";
     break;
     case global.E:
         name = "E";
@@ -33,13 +33,13 @@ name = "error";
         name = "F";
     break;
     case global.FSHARP:
-        name = "Fsharp";
+        name = "F\#";
     break;
     case global.G:
         name = "G";
     break;
     case global.GSHARP:
-        name = "Gsharp";
+        name = "G\#";
     break;
     //default
    default:

@@ -29,8 +29,8 @@ full_scales[15] = global.GSHARP;
 full_scales[16] = global.AFLAT;
 
 randomScale = irandom(beginnerScaleLength);
-//thisScale = beginner_scales[randomScale];
-thisScale = beginner_scales[5];
+thisScale = beginner_scales[randomScale];
+
 { switch (thisScale) {
     case global.A:
         // A B C# D E F# G# A

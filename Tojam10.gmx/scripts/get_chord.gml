@@ -1,6 +1,5 @@
 num_chords = 7;
-thisChord = 0;
-//thisChord = irandom(num_chords);
+thisChord = irandom(num_chords);
 
 
 { switch (thisChord) {

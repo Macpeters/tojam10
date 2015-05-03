@@ -4,13 +4,13 @@ name = "modifier";
 
 { switch (modifier) {
    case global.FLAT:
-    name = "flat";
+    name = "b";
     break;
    case global.NATURAL:
-    name = "natural";
+    name = ".";
     break;
    case global.SHARP:
-    name = "sharp";
+    name = "\#";
     break;
    default:
     name = "modifier error";

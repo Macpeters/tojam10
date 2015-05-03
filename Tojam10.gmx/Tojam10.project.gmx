@@ -12,6 +12,20 @@
       <sound>sound\aud_collectable</sound>
       <sound>sound\aud_button_click</sound>
     </sounds>
+    <sounds name="notes">
+      <sound>sound\aud_A</sound>
+      <sound>sound\aud_B</sound>
+      <sound>sound\aud_Bb</sound>
+      <sound>sound\aud_Csharp</sound>
+      <sound>sound\aud_C</sound>
+      <sound>sound\aud_D</sound>
+      <sound>sound\aud_E</sound>
+      <sound>sound\aud_Eb</sound>
+      <sound>sound\aud_Fsharp</sound>
+      <sound>sound\aud_F</sound>
+      <sound>sound\aud_Gsharp</sound>
+      <sound>sound\aud_G</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprites name="cutscenes">
@@ -34,10 +48,9 @@
       <sprite>sprites\spr_btn_music</sprite>
       <sprite>sprites\spr_btn_sfx</sprite>
       <sprite>sprites\spr_btn_ok</sprite>
+      <sprite>sprites\spr_btn_replay</sprite>
+      <sprite>sprites\spr_btn_info</sprite>
     </sprites>
-    <sprite>sprites\spr_blank_sprite</sprite>
-    <sprite>sprites\sprite67</sprite>
-    <sprite>sprites\sprite75</sprite>
     <sprites name="colourDots">
       <sprite>sprites\spr_redDot</sprite>
       <sprite>sprites\spr_greenDot</sprite>
@@ -78,9 +91,11 @@
       <script>scripts\get_required_notes.gml</script>
       <script>scripts\get_note_name.gml</script>
       <script>scripts\get_chord.gml</script>
+      <script>scripts\get_modifier_for_key.gml</script>
     </scripts>
     <script>scripts\setConstants.gml</script>
-    <script>scripts\playSong.gml</script>
+    <script>scripts\stop_song.gml</script>
+    <script>scripts\play_song.gml</script>
     <script>scripts\is_value_in_array.gml</script>
   </scripts>
   <fonts name="fonts">
@@ -89,6 +104,7 @@
   <objects name="objects">
     <objects name="controllers">
       <object>objects\obj_settings_controller</object>
+      <object>objects\obj_info_controller</object>
       <object>objects\obj_global_controller</object>
       <object>objects\obj_cutscene_controller</object>
       <object>objects\menu_controller</object>
@@ -114,6 +130,7 @@
     <room>rooms\roo_menu</room>
     <room>rooms\roo_game</room>
     <room>rooms\roo_settings</room>
+    <room>rooms\roo_info</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

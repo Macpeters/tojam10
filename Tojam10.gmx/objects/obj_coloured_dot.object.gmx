@@ -60,6 +60,11 @@ if(self.dotColour == global.WHITE || self.dotColour == global.BLACK){
     index = get_keys_index(self.value);
     self.keys_index = index;
     global.KEYS[index] = selected;
+    if(self.selected){
+        play_song(self.value);
+    }else{
+        stop_song(self.value);
+    }
 }
 
 </string>
@@ -100,18 +105,16 @@ if(self.dotColour == global.WHITE || self.dotColour == global.BLACK){
 draw_sprite_ext( sprite, subImage, x, y, 0.6, 0.6, 0, c_white, 1 );
 
 //Text
+draw_set_font(fon_hud);
 if(isKey){  
-    draw_set_font(fon_hud);
-    draw_set_color(c_orange);
     if(self.dotColour == global.WHITE){
-        draw_text(x + 20, y + 20, self.name)
-        draw_text(x + 20, y + 29, self.keys_index)
+        draw_set_color(c_blue);  
+        draw_text(x - 5, y + 25, self.name)
     }else{
+        draw_set_color(c_orange);
         draw_text(x - 10, y + 40, self.name)
-        draw_text(x - 10, y + 49, self.keys_index)
     }
 }else{
-    draw_set_font(fon_hud);
     draw_set_color(c_black);
     draw_text(x + 5, y + 20, self.value)
 }

@@ -26,9 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>///compile all the information, call the scripts, figure out the answer
+audio_stop_all();
 required_notes = get_required_notes();
 requiredLength = array_length_1d(required_notes);
-
 
 //get the selected notes
 selectedIterator = 0;
@@ -39,7 +39,11 @@ for (var i = 0; i &lt; global.NUMKEYS; i++;){
         selectedIterator ++;     
     }
 }
-selectedLength = array_length_1d(selectedNotes);
+selectedLength = 0
+if(selectedIterator &gt; 0){
+    selectedLength = array_length_1d(selectedNotes);
+}
+
 
 //compare values
 roundScore = 0;
@@ -47,14 +51,21 @@ scoreValuePerNote = 25;
 totalScoreValue = (requiredLength + 1) * scoreValuePerNote;
 
 //How many required notes were selected
-for(j = 0; j &lt;= requiredLength; j++){
-    valueToFind = required_notes[j,0]
-    found = is_value_in_array(valueToFind, selectedNotes);
-    if(found){
-      roundScore += scoreValuePerNote;  
+if(selectedLength &gt; 0){
+    for(j = 0; j &lt;= requiredLength; j++){
+        valueToFind = required_notes[j,0]
+        found = is_value_in_array(valueToFind, selectedNotes);
+        if(found){
+            roundScore += scoreValuePerNote;  
+        }
     }
 }
 
+button = instance_create(x + 350, y + 250, obj_global_button);
+button.buttonLevel = global.BUTTON_REPLAY;
+
+/*
+Advanced players will lose points for incorrect notes
 //How many incorrect notes were selected
 for(k = 0; k &lt; selectedLength; k++){
     found = is_value_in_array(selectedNotes[k], required_notes);
@@ -62,6 +73,7 @@ for(k = 0; k &lt; selectedLength; k++){
     //    roundScore -= scoreValuePerNote;  
     }
 }
+*/
 </string>
           </argument>
         </arguments>
@@ -85,37 +97,40 @@ for(k = 0; k &lt; selectedLength; k++){
           <argument>
             <kind>1</kind>
             <string>///Draw the results
-draw_sprite(spr_hud, 0, 0, 0);
 draw_set_font(fon_hud);
 draw_set_color(c_black);
-
 //notes required
-draw_text(x + 200, y + 170 ,"Required for ");
-draw_text(x + 320,y + 170,global.scaleName);
-draw_text(x + 340, y + 170 ,global.chordName);
+requiredHeadingY = y + 20;
+requiredHeadingX = x + 50;
+draw_text(requiredHeadingX,         requiredHeadingY,   "Required");
 
+requiredNotesY = requiredHeadingY;
+requiredNotesX = requiredHeadingX + 100;
 for(i = 0; i &lt; array_height_2d(required_notes); i++){
-    draw_text(x + 200, y + 200 + i*30 ,required_notes[i, 0]);
     noteName = get_note_name(required_notes[i, 0])
-    draw_text(x + 250, y + 200 + i*30 ,noteName);
     modifier = get_modifier(required_notes[i, 1]);
-    draw_text(x + 270, y + 200 + i*30 ,modifier);
+    draw_text(requiredNotesX,       requiredNotesY + i*25,  required_notes[i, 0]);
+    draw_text(requiredNotesX + 50,  requiredNotesY + i*25,  noteName); 
+    draw_text(requiredNotesX + 70,  requiredNotesY + i*25,  modifier);
 }
 
 //notes chosen
-draw_text(x + 200, y + 300 ,"You chose: ");
+chosenY = y + 125;
+chosenX = x + 50;
+draw_text(chosenX, chosenY ,"You chose: ");
 iterator = 0;
-length = array_length_1d(selectedNotes);
-for (j = 0; j &lt; length; j++){
+for (j = 0; j &lt; selectedLength; j++){
     noteName = get_note_name(selectedNotes[j])
-    draw_text(x + 200, y + 350 + j*30 ,selectedNotes[j]);
-    draw_text(x + 250, y + 350 + j*30 ,noteName);  
+    draw_text(chosenX + 100,     chosenY  + j*25,    selectedNotes[j]);
+    draw_text(chosenX + 150,     chosenY  + j*25,    noteName);  
 }
 
 //Score
-draw_text(x + 250, y + 450, roundScore);  
-draw_text(x + 275, y + 450, " / ");
-draw_text(x + 300, y + 450, totalScoreValue);
+scoreY = y + 250;
+scoreX = x + 250;
+draw_text(scoreX, scoreY, roundScore);  
+draw_text(scoreX + 25, scoreY, " / ");
+draw_text(scoreX + 50, scoreY, totalScoreValue);
 
 
 

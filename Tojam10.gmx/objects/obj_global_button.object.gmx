@@ -3,7 +3,7 @@
   <spriteName>spr_btn_play</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-800</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>///Setup
 self.buttonLevel = 1;
+self.toggled_on = true;
 
 </string>
           </argument>
@@ -50,24 +51,39 @@ self.buttonLevel = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>{ switch (self.buttonLevel) {
+            <string>//Audio
+if(global.sfx_on){
+    audio_play_sound(aud_button_click, 10, false);
+}
+
+{ switch (self.buttonLevel) {
    case global.BUTTON_PLAY:
-    room_goto(roo_game);
+        if(room == roo_menu){
+            room_goto(roo_game);
+        }else{
+            room_goto(roo_menu);
+        }  
    break;
-   //settings
    case global.BUTTON_SETTINGS:
-    
+        room_goto(roo_settings);
    break;
    case global.BUTTON_SFX:
-   
+        global.sfx_on = !global.sfx_on;
+        self.toggled_on = !self.toggled_on;
    break;
    case global.BUTTON_MUSIC:
-    
+        global.music_on = !global.music_on;
+        self.toggled_on = ! self.toggled_on;
    break;
    case global.BUTTON_OK:
-    instance_create(100, 100, obj_resolver);
+        instance_create(100, 100, obj_resolver);
    break;
-    //default
+   case global.BUTTON_REPLAY:
+        room_goto(roo_game);
+   break;
+   case global.BUTTON_INFO:
+        room_goto(roo_info);
+    break;
    default:
    }
 }
@@ -95,8 +111,12 @@ self.buttonLevel = 1;
           <argument>
             <kind>1</kind>
             <string>///Draw the right sprite for this world
+opacity = 1;
+if(!toggled_on){
+    opacity = 0.5;
+}
 get_global_btn_sprite(self.buttonLevel);
-draw_sprite_ext( sprite, 1, x, y, 1, 1, 0, c_white, 1 );
+draw_sprite_ext( sprite, 1, x, y, 1, 1, 0, c_white, opacity );
 
 </string>
           </argument>

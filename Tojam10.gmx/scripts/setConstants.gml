@@ -47,6 +47,8 @@ global.BUTTON_SETTINGS = 103;
 global.BUTTON_SFX = 104;
 global.BUTTON_MUSIC = 105;
 global.BUTTON_OK = 106;
+global.BUTTON_REPLAY = 107;
+global.BUTTON_INFO = 108;
 
 global.NUM_LEVELS = 1;
 
