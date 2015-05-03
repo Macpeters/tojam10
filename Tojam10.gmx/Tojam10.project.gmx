@@ -12,6 +12,20 @@
       <sound>sound\aud_collectable</sound>
       <sound>sound\aud_button_click</sound>
     </sounds>
+    <sounds name="notes">
+      <sound>sound\aud_A</sound>
+      <sound>sound\aud_B</sound>
+      <sound>sound\aud_Bb</sound>
+      <sound>sound\aud_Csharp</sound>
+      <sound>sound\aud_C</sound>
+      <sound>sound\aud_D</sound>
+      <sound>sound\aud_E</sound>
+      <sound>sound\aud_Eb</sound>
+      <sound>sound\aud_Fsharp</sound>
+      <sound>sound\aud_F</sound>
+      <sound>sound\aud_Gsharp</sound>
+      <sound>sound\aud_G</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprites name="cutscenes">
@@ -34,10 +48,9 @@
       <sprite>sprites\spr_btn_music</sprite>
       <sprite>sprites\spr_btn_sfx</sprite>
       <sprite>sprites\spr_btn_ok</sprite>
+      <sprite>sprites\spr_btn_replay</sprite>
+      <sprite>sprites\spr_btn_info</sprite>
     </sprites>
-    <sprite>sprites\spr_blank_sprite</sprite>
-    <sprite>sprites\sprite67</sprite>
-    <sprite>sprites\sprite75</sprite>
     <sprites name="colourDots">
       <sprite>sprites\spr_redDot</sprite>
       <sprite>sprites\spr_greenDot</sprite>
@@ -50,6 +63,7 @@
     </sprites>
     <sprite>sprites\spr_keyboard</sprite>
     <sprite>sprites\spr_errorSprite</sprite>
+    <sprite>sprites\spr_results</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_game</background>
@@ -60,34 +74,47 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\setConstants.gml</script>
     <scripts name="get_sprites">
       <script>scripts\get_coloured_dot.gml</script>
       <script>scripts\get_global_btn_sprite.gml</script>
       <script>scripts\get_cutscene_sprite.gml</script>
     </scripts>
-    <script>scripts\loadSaveFile.gml</script>
-    <script>scripts\saveFile.gml</script>
-    <script>scripts\playSong.gml</script>
-    <script>scripts\get_scale.gml</script>
-    <script>scripts\get_chord.gml</script>
+    <scripts name="util">
+      <script>scripts\saveFile.gml</script>
+      <script>scripts\loadSaveFile.gml</script>
+    </scripts>
+    <scripts name="get_values">
+      <script>scripts\get_scale.gml</script>
+      <script>scripts\get_modifier.gml</script>
+      <script>scripts\get_keys_index.gml</script>
+      <script>scripts\get_keys_value.gml</script>
+      <script>scripts\get_required_notes.gml</script>
+      <script>scripts\get_note_name.gml</script>
+      <script>scripts\get_chord.gml</script>
+      <script>scripts\get_modifier_for_key.gml</script>
+    </scripts>
+    <script>scripts\setConstants.gml</script>
+    <script>scripts\stop_song.gml</script>
+    <script>scripts\play_song.gml</script>
+    <script>scripts\is_value_in_array.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fon_hud</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_global_controller</object>
-    <object>objects\obj_game_controller</object>
-    <object>objects\menu_controller</object>
-    <object>objects\obj_cutscene_controller</object>
-    <object>objects\obj_settings_controller</object>
+    <objects name="controllers">
+      <object>objects\obj_settings_controller</object>
+      <object>objects\obj_info_controller</object>
+      <object>objects\obj_global_controller</object>
+      <object>objects\obj_cutscene_controller</object>
+      <object>objects\menu_controller</object>
+      <object>objects\obj_game_controller</object>
+    </objects>
     <objects name="In-Game">
-      <objects name="Parents">
-        <object>objects\par_entity</object>
-      </objects>
       <object>objects\obj_hud</object>
       <object>objects\obj_keyboard</object>
       <object>objects\obj_coloured_dot</object>
+      <object>objects\obj_resolver</object>
     </objects>
     <objects name="Buttons">
       <object>objects\obj_global_button</object>
@@ -103,6 +130,7 @@
     <room>rooms\roo_menu</room>
     <room>rooms\roo_game</room>
     <room>rooms\roo_settings</room>
+    <room>rooms\roo_info</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

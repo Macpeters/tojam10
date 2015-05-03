@@ -25,43 +25,34 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Play music, Create buttons
-playSong();
+            <string>///Create buttons
 
 //the play button
-button = instance_create(100, 100, obj_global_button);
+button = instance_create(250, 50, obj_global_button);
 button.buttonLevel = global.BUTTON_PLAY;
 
 //the settings button
-button = instance_create(600, 300, obj_global_button);
-button.buttonLevel = global.BUTTON_SETTINGS;   
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Draw the available score
-draw_sprite_ext( spr_hud, 0, 0, 350, 1, 4, 0, c_white, 1 );
-draw_set_font(fon_hud);
-draw_set_color(c_white);
-draw_text(450,410,global.points)
+button = instance_create(600, 50, obj_global_button);
+button.buttonLevel = global.BUTTON_SETTINGS;
+
+//the info button
+button = instance_create(600, 150, obj_global_button);
+button.buttonLevel = global.BUTTON_INFO; 
+
+themePhrase = "And so it has come to this";
+randomPhrase0 = "The lovely piano lady won't sing along with you # because the songs you know aren't in her key";
+randomPhrase1 = "You could be jamming with your heros, but you  # can't figure out what key they're playing in;";
+randomPhrase2 = "You're still using chord charts because you  # haven't seen the underlying pattern of the fretboard";
+randomPhrase3 = "You know you need to know key signatures,  # but it's just so boring to memorize all that stuff";
+randomPhrase4 = "You know the grasshopper must sing loud and clear # before it finds a mate";
+
+randomPhrases[0] = randomPhrase0;
+randomPhrases[1] = randomPhrase1;
+randomPhrases[2] = randomPhrase2;
+randomPhrases[3] = randomPhrase3;
+randomPhrases[4] = randomPhrase4;
+
+currentRandomPhrase = irandom(4);
 </string>
           </argument>
         </arguments>
@@ -84,7 +75,12 @@ draw_text(450,410,global.points)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///do not draw the icon
+            <string>///Draw the goat phrases
+draw_set_font(fon_hud);
+draw_set_color(c_black);
+
+draw_text(50,350,themePhrase);
+draw_text(50,200,randomPhrases[currentRandomPhrase]);
 </string>
           </argument>
         </arguments>

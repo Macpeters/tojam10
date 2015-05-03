@@ -36,8 +36,8 @@ global.FLAT = 0;
 global.NATURAL = 1;
 global.SHARP = 2;
 
-//beginner level no sharps or flats
 global.NUM_BASIC_SCALES = 7;
+global.NUMKEYS = 12;
 
 
 //buttons
@@ -47,6 +47,8 @@ global.BUTTON_SETTINGS = 103;
 global.BUTTON_SFX = 104;
 global.BUTTON_MUSIC = 105;
 global.BUTTON_OK = 106;
+global.BUTTON_REPLAY = 107;
+global.BUTTON_INFO = 108;
 
 global.NUM_LEVELS = 1;
 

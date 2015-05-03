@@ -25,8 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(16, 16, obj_exit_level_button);
-
+            <string>///Create exit button, keyboard
+instance_create(16, 16, obj_exit_level_button);
 instance_create(0, 150, obj_keyboard)
 
 
@@ -52,11 +52,27 @@ instance_create(0, 150, obj_keyboard)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///draw overlay, number glowrings, points and hp
-draw_sprite(spr_hud, 0, 0, 0);
+            <string>///draw overlay, scale letter, chord type
+draw_sprite(spr_hud, 0, 50, 0);
 draw_set_font(fon_hud);
+draw_set_color(c_black);
+
+//scale letter
+draw_text(75,35,global.scaleName)
+
+//chord type
+draw_text(100,35,global.chordName)
+
+//the actual scale
 draw_set_color(c_white);
-draw_text(300,0,global.points)
+for(i = 0; i &lt; 7; i++){
+    value = global.scale[i, 0];
+    modifier = global.scale[i, 1];
+    noteName = get_note_name(value);
+    modifierName = get_modifier(modifier);
+    draw_text(270 + i * 50,35,noteName);
+    draw_text(285 + i * 50,35, modifierName);
+}
 </string>
           </argument>
         </arguments>

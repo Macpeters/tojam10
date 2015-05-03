@@ -30,7 +30,6 @@
 setConstants();
 global.level = 0;
 loadSaveFile();
-playSong();
 </string>
           </argument>
         </arguments>

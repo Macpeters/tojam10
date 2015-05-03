@@ -6,6 +6,7 @@ beginner_scales[3] = global.D;
 beginner_scales[4] = global.E;
 beginner_scales[5] = global.F;
 beginner_scales[6] = global.G;
+beginnerScaleLength = 6;
 
 //Advanced mode - choose randomly from an array of all the scales
 //all the scales by any name
@@ -27,7 +28,8 @@ full_scales[14] = global.G;
 full_scales[15] = global.GSHARP;
 full_scales[16] = global.AFLAT;
 
-thisScale = beginner_scales[0];
+randomScale = irandom(beginnerScaleLength);
+thisScale = beginner_scales[randomScale];
 
 { switch (thisScale) {
     case global.A:
@@ -46,6 +48,7 @@ thisScale = beginner_scales[0];
         scale[5, 1] = global.SHARP;
         scale[6, 0] = global.G;
         scale[6, 1] = global.SHARP;
+        global.scaleName = "A";
     break;  
     case global.B:
         //B C# D# E F# G# A# B 
@@ -63,6 +66,7 @@ thisScale = beginner_scales[0];
         scale[5, 1] = global.SHARP;
         scale[6, 0] = global.B;
         scale[6, 1] = global.NATURAL;
+        global.scaleName = "B";
     break;   
     case global.C:
         //C D E F G A B C
@@ -80,6 +84,7 @@ thisScale = beginner_scales[0];
         scale[5, 1] = global.NATURAL;
         scale[6, 0] = global.B;
         scale[6, 1] = global.NATURAL;
+        global.scaleName = "C";
     break;
     case global.D:
         //D E F# G A B C# D
@@ -97,6 +102,7 @@ thisScale = beginner_scales[0];
         scale[5, 1] = global.NATURAL;
         scale[6, 0] = global.C;
         scale[6, 1] = global.SHARP;
+        global.scaleName = "D";
     
     break;
     case global.E:
@@ -115,6 +121,7 @@ thisScale = beginner_scales[0];
         scale[5, 1] = global.SHARP;
         scale[6, 0] = global.D;
         scale[6, 1] = global.SHARP;
+        global.scaleName = "E";
     break;
     case global.F:
         //F G A Bb C D E F
@@ -132,7 +139,7 @@ thisScale = beginner_scales[0];
         scale[5, 1] = global.NATURAL;
         scale[6, 0] = global.E;
         scale[6, 1] = global.NATURAL;
-    
+        global.scaleName = "F";
     break;
     case global.G:
         //G A B C D E F# G
@@ -150,8 +157,10 @@ thisScale = beginner_scales[0];
         scale[5, 1] = global.NATURAL;
         scale[6, 0] = global.F;
         scale[6, 1] = global.SHARP;
+        global.scaleName = "G";
     break;
     default:
+    global.scaleName = "Scale Error";
     //1.0, 1.0, 0.5, 1.0, 1.0, 1.0, 0.5 Steps
    }
 }

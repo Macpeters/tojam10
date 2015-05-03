@@ -25,35 +25,58 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//global.scaleRoot = random(6);
+            <string>///initialize keys, chord dots submit button
 global.scale = get_scale();
 global.chord = get_chord();
 
 //chord dots
 for (var i = 0; i &lt; array_height_2d(global.chord); i++;){
-    dot = instance_create(i * 70, 100, obj_coloured_dot);
+    dot = instance_create(i * 70 + 175, 80, obj_coloured_dot);
     value = global.chord[i, 0];
     dot.dotColour = value + 200;
     dot.value = value;
-    dot.valueAttribute = global.chord[i, 1];
+    dot.valueModifier = global.chord[i, 1];
 }
 
 //submit button
-okButton = instance_create(400, 50, obj_global_button);
+okButton = instance_create(550, 100, obj_global_button);
 okButton.buttonLevel = global.BUTTON_OK;
 
 //white keys
+whiteKeys[0] = global.C;
+whiteKeys[1] = global.D;
+whiteKeys[2] = global.E;
+whiteKeys[3] = global.F;
+whiteKeys[4] = global.G;
+whiteKeys[5] = global.A;
+whiteKeys[6] = global.B;
+
 for(i = 0; i &lt; global.NUM_WHITE_KEYS; i++){
-    dot = instance_create(i * 90 + 5, 370, obj_coloured_dot);
+    dot = instance_create(i * 90 + 50, 400, obj_coloured_dot);
     dot.dotColour = global.WHITE
-    dot.valueAttribute = 0;
+    dot.value = whiteKeys[i];
+    keys_index = get_keys_index(whiteKeys[i]);
+    dot.keys_index = get_keys_index(whiteKeys[i]);
+    dot.name = get_note_name(whiteKeys[i]);
+    dot.valueModifier = 0;
 }
+
 //black keys
+blackKeys[0] = global.CSHARP;
+blackKeys[1] = global.DSHARP;
+blackKeys[2] = 0;
+blackKeys[3] = global.FSHARP;
+blackKeys[4] = global.GSHARP;
+blackKeys[5] = global.ASHARP;
+
 for(j = 0; j &lt;= global.NUM_BLACK_KEYS; j++){
     if(j != 2){
-        dot = instance_create(j * 90 + 70, 250, obj_coloured_dot);
+        dot = instance_create(j * 90 + 100, 260, obj_coloured_dot);
         dot.dotColour = global.BLACK
-        dot.valueAttribute = 0;
+        dot.value = blackKeys[j]
+        dot.keys_index = get_keys_index(blackKeys[j]);
+        dot.name = get_note_name(blackKeys[j]);
+        dot.valueModifier = 0;
     }
     
 }
@@ -79,7 +102,8 @@ for(j = 0; j &lt;= global.NUM_BLACK_KEYS; j++){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(sprite_index, 0, x, y);
+            <string>///basic sprite draw (to be removed)
+draw_sprite(sprite_index, 0, x, y);
 
 </string>
           </argument>
